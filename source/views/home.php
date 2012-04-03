@@ -1,6 +1,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="views/js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="views/js/jquery.validate.js"></script>
+        <script>
+            $(function(){
+                $("#filter_actor").click(function(){
+                    var actor_name=$("input[name=actor_name]").val();
+                    data={
+                        "actor_name":actor_name
+                    };
+                    $.post("?con=home&ajax=filter_movie_actor",data,function(response){
+                        $("#movies_list").html(response);
+                    })
+                    
+                })
+            })
+        </script>
     </head>
     <body>
         welcome
@@ -11,6 +27,15 @@
         <br/>
         <br/>
         <h1>Movies</h1>
+        <h4> <a href="index.php?con=home&page=gallery">Movies Gallery</a> </h4>
+        <h4> Filter Movies by Actor name</h4>
+        <label>
+            Actor name
+        </label>
+        <input type="text" name="actor_name"/>
+        <br/>
+        <a href="javascript:void(0)"id="filter_actor">Filter By Actor</a>
+        <br/>
         <table >
             <thead>
                 <tr>
@@ -34,7 +59,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="movies_list">
 
                 <?php foreach ($movies_list as $value) {
                 ?>
