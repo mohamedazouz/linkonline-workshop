@@ -17,7 +17,6 @@ include_once 'init.php';
 
 $inAction = false;
 $controllerList = array(
-    "auth" => 1,
     "home" => 1
 );
 
