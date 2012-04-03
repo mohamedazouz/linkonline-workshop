@@ -45,7 +45,23 @@ and open the template in the editor.
         <br/>
         <br/>
         <br/>
+        <h3>Movie Actors</h3>
+                    <div id="movie_actors">
+            <?php
+                    if ($movie_actors) {
+                        foreach ($movie_actors as $value) {
+                            echo $value['name'] . "<br/>";
+                        }
+                    } else {
+                        echo "<div class='empty'>No actor assigned to this movie</div>";
+                    }
+            ?>
+                </div>
         <br/>
+        <iframe width="460" height="400" src="http://www.youtube.com/embed/<?= $movie['youtube_id'] ?>?wmode=transparent" frameborder=""   allowfullscreen />
+
+        </iframe>
+            <br/>
         <br/>
         <br/>
         <span class="f-r facebook-like">
@@ -57,10 +73,9 @@ and open the template in the editor.
         </span>
         <span class="f-r facebook-like"> <iframe src="//www.facebook.com/plugins/like.php?href=<?= urlencode(BASE_URL."?con=home&page=movie&id={$movie['id']}") ?>&amp;send=false&amp;layout=box_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:44px; height:62px; margin-top: -2px;" allowTransparency="true"></iframe></span>
 
-
-        <iframe allowtransparency="true" frameborder="0" scrolling="no"
-                src="http://platform.twitter.com/widgets/tweet_button.html?size=medium&url=<?=  urlencode(BASE_URL."?con=home&page=movie&id={$movie['id']}")?>&text=<?= $movie['name'] ?>&count=vertical"
-                style="width:130px; height:65px;"class="twitter-share-button f-r"></iframe>
+                <iframe allowtransparency="true" frameborder="0" scrolling="no"
+                        src="http://platform.twitter.com/widgets/tweet_button.html?size=medium&url=<?=  urlencode(BASE_URL."?con=home&page=movie&id={$movie['id']}")?>&text=<?= $movie['name'] ?>&count=vertical"
+                        style="width:130px; height:65px;"class="twitter-share-button f-r"></iframe>
 
 
     </body>
