@@ -19,9 +19,8 @@
         </script>
     </head>
     <body>
-        welcome
-        <?= $me['name'] ?> ,<br/>
-
+      
+<h4> <a href="rss.php">RSS feed</a> </h4>
 
         <br/>
         <br/>
